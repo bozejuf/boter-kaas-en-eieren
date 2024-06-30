@@ -23,16 +23,21 @@
         <button onclick="saveMove('c3')"  class="square">c3</button>
       </div>
       <script>
-        let positions = {
-        };
-
+        let positions = {};
+        let round = 0;
 
         function saveMove(square) {
-          positions[square] = "X"
-          console.log(positions)
+          if (!(square in positions)){
+            positions[square] = "X";
+            round += 1;
+            console.log(positions)
+            console.log(round);
+          }   
         };
 
         console.log(positions);
+        console.log(round);
+        console.log('a2' in positions);
 
       </script>
     </div>
