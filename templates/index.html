@@ -28,8 +28,11 @@
 
         function saveMove(square) {
           if (!(square in positions)){
-            positions[square] = "X";
             round += 1;
+            if (round%2)
+              positions[square] = "X";
+            else
+            positions[square] = "O";
             console.log(positions)
             console.log(round);
           }   
