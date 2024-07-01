@@ -8,19 +8,19 @@
     <h1>Boter-kaas-en-eieren</h1>
     <div>
       <div class="row">
-        <button id="a1" onclick="saveMove('a1')" class="square">a1</button>
-        <button id="a2" onclick="saveMove('a2')"  class="square">a2</button>
-        <button id="a3" onclick="saveMove('a3')"  class="square">a3</button>
+        <button id="a1" onclick="saveMove('a1')" class="square"></button>
+        <button id="a2" onclick="saveMove('a2')"  class="square"></button>
+        <button id="a3" onclick="saveMove('a3')"  class="square"></button>
       </div>
       <div class="row">
-        <button id="b1" onclick="saveMove('b1')"  class="square">b1</button>
-        <button id="b2" onclick="saveMove('b2')"  class="square">b2</button>
-        <button id="b3" onclick="saveMove('b3')"  class="square">b3</button>
+        <button id="b1" onclick="saveMove('b1')"  class="square"></button>
+        <button id="b2" onclick="saveMove('b2')"  class="square"></button>
+        <button id="b3" onclick="saveMove('b3')"  class="square"></button>
       </div>
       <div class="row">
-        <button id="c1" onclick="saveMove('c1')"  class="square">c1</button>
-        <button id="c2" onclick="saveMove('c2')"  class="square">c2</button>
-        <button id="c3" onclick="saveMove('c3')"  class="square">c3</button>
+        <button id="c1" onclick="saveMove('c1')"  class="square"></button>
+        <button id="c2" onclick="saveMove('c2')"  class="square"></button>
+        <button id="c3" onclick="saveMove('c3')"  class="square"></button>
       </div>
       <script>
         let positions = {};
@@ -29,10 +29,14 @@
         function saveMove(square) {
           if (!(square in positions)){
             round += 1;
-            if (round%2)
+            if (round%2) {
               positions[square] = "X";
-            else
-            positions[square] = "O";
+              document.getElementById(square).innerHTML = "X";
+            }
+            else {
+              positions[square] = "O";
+              document.getElementById(square).innerHTML = "O";
+            }
             console.log(positions)
             console.log(round);
           }   
