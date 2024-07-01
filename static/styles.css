@@ -12,11 +12,24 @@ h1 {
   height: 100px;
   width: 100px;
   text-align: center;
-  border: solid;
-  border-width: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30px;
   background-color: white;
+  border: none;
+}
+
+#a2, #b2, #c2 {
+  border-left-style: solid;
+  border-left-style: 5px;
+  border-right-style: solid;
+  border-right-style: 5px;
+}
+
+#b1, #b2, #b3 {
+  border-top: solid;
+  border-top-style: 5px;
+  border-bottom-style: solid;
+  border-bottom-style: 5px;
 }
