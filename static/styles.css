@@ -1,5 +1,13 @@
+body {
+  font-family: "Permanent Marker", cursive;
+  background-image: url("notebook-page.jpg");
+  background-color: white;
+  background-size: 100%;
+}
+
 h1 {
   text-align: center;
+
 }
 
 .row {
@@ -9,27 +17,34 @@ h1 {
 }
 
 .square {
+  font-family: "Permanent Marker", cursive;
   height: 100px;
   width: 100px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
-  background-color: white;
+  font-size: 50px;
+  background-color: transparent;
   border: none;
 }
 
 #a2, #b2, #c2 {
   border-left-style: solid;
-  border-left-style: 5px;
+  border-left-width: 6px;
   border-right-style: solid;
-  border-right-style: 5px;
+  border-right-width: 6px;
 }
 
 #b1, #b2, #b3 {
-  border-top: solid;
-  border-top-style: 5px;
+  border-top-style: solid;
+  border-top-width: 6px;
   border-bottom-style: solid;
-  border-bottom-style: 5px;
+  border-bottom-width: 6px;
+}
+
+#winner {
+  padding-top: 30px;
+  font-size: 40px;
+  text-align: center;
 }
