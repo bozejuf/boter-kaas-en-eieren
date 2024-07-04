@@ -48,10 +48,12 @@
             ["a3", "b2", "c1"]
           ];
 
-          // For each winning combination, check if it exists in dict positions (so if move has been made) and if all three are the same
-          if (round < 3) {
+          // In round 5 is the earliest there can be a winner, so before that the rest of the function can be ignored.
+          if (round < 5) {
             pass
           }
+
+          // For each winning combination, check if it exists in dict positions (so if move has been made) and if all three are the same
           for (const combo of winningCombos) {
             if (
                 positions[combo[0]] &&
@@ -68,10 +70,13 @@
           };
         }
 
-
+        // This function saves every move to the dict "positions"
+        // If the round-number is even, it's Xs turn, if it is odd it is Os turn
         function saveMove(square) {
+          // if move has not been made yet and there is no winner yet, move is saved and round goes up by 1
           if (!(square in positions) && !winner) {
             round += 1;
+            // If the round-number is odd, it is Xs turn, if it is even, it is Os turn
             if (round%2) {
               positions[square] = "X";
               document.getElementById(square).innerHTML = "X";
@@ -80,10 +85,6 @@
               positions[square] = "O";
               document.getElementById(square).innerHTML = "O";
             };
-            
-            console.log(`Ronde ${round}`);
-            console.log(positions);
-            checkWinner();
           };   
         };
 
