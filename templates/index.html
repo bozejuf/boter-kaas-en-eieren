@@ -35,36 +35,31 @@
         winner = false;
 
         function checkWinner() {
-          if (positions["a1"] === positions["a2"] && positions["a2"] === positions["a3"] && (positions["a1"] === "X" || positions["a1"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["a1"]} wint!`;
-            winner = true;
-          } else if (positions["b1"] === positions["b2"] && positions["b2"] === positions["b3"] && (positions["b1"] === "X" || positions["b1"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["b1"]} wint!`;
-            winner = true;
-          } else if (positions["c1"] === positions["c2"] && positions["c2"] === positions["c3"] && (positions["c1"] === "X" || positions["c1"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["c1"]} wint!`;
-            winner = true;
-          } else if (positions["a1"] === positions["b1"] && positions["b1"] === positions["c1"] && (positions["a1"] === "X" || positions["a1"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["a1"]} wint!`;
-            winner = true;
-          } else if (positions["a2"] === positions["b2"] && positions["b2"] === positions["c2"] && (positions["a2"] === "X" || positions["a2"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["a2"]} wint!`;
-            winner = true;
-          } else if (positions["a3"] === positions["b3"] && positions["b3"] === positions["c3"] && (positions["a3"] === "X" || positions["a3"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["a3"]} wint!`;
-            winner = true;
-          } else if (positions["a1"] === positions["b2"] && positions["b2"] === positions["c3"] && (positions["a1"] === "X" || positions["a1"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["a1"]} wint!`;
-            winner = true;
-          } else if (positions["c1"] === positions["b2"] && positions["b2"] === positions["a3"] && (positions["c1"] === "X" || positions["c1"] === "O")) {
-            document.getElementById("winner").innerHTML = `${positions["c1"]} wint!`;
-            winner = true;
-          }
-          else if (round === 9)
-          {
-            document.getElementById("winner").innerHTML = "Gelijkspel!"
-          }
-        };
+          const winningCombos = [
+            ["a1", "a2", "a3"],
+            ["b1", "b2", "b3"],
+            ["c1", "c2", "c3"],
+            ["a1", "b1", "c1"],
+            ["a2", "b2", "c2"],
+            ["a3", "b3", "c3"],
+            ["a1", "b2", "c3"],
+            ["a3", "b2", "c1"]
+          ];
+
+          for (const combo of winningCombos) {
+            if (
+                positions[combo[0]] &&
+                positions[combo[0]] === positions[combo[1]] && 
+                positions[combo[1]] === positions[combo[2]]
+            ) {
+              document.getElementById("winner").innerHTML = `${positions[combo[0]]} wint!`;
+            }
+            else if (round === 9)
+            {
+              document.getElementById("winner").innerHTML = "Gelijkspel!";
+            }
+          };
+        }
 
         function saveMove(square) {
           if (!(square in positions) && !winner) {
