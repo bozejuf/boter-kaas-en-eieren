@@ -34,7 +34,9 @@
         let round = 0; 
         winner = false;
 
+        // This function determines if there is a winner or a tie.
         function checkWinner() {
+          // List of winning combinations
           const winningCombos = [
             ["a1", "a2", "a3"],
             ["b1", "b2", "b3"],
@@ -46,6 +48,10 @@
             ["a3", "b2", "c1"]
           ];
 
+          // For each winning combination, check if it exists in dict positions (so if move has been made) and if all three are the same
+          if (round < 3) {
+            pass
+          }
           for (const combo of winningCombos) {
             if (
                 positions[combo[0]] &&
@@ -54,12 +60,14 @@
             ) {
               document.getElementById("winner").innerHTML = `${positions[combo[0]]} wint!`;
             }
+          // If no winner has been determined in round 9, it is a tie.
             else if (round === 9)
             {
               document.getElementById("winner").innerHTML = "Gelijkspel!";
             }
           };
         }
+
 
         function saveMove(square) {
           if (!(square in positions) && !winner) {
