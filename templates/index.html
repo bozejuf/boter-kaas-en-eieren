@@ -50,23 +50,25 @@
 
           // In round 5 is the earliest there can be a winner, so before that the rest of the function can be ignored.
           if (round < 5) {
-            pass
+            return;
           }
-
+          
           // For each winning combination, check if it exists in dict positions (so if move has been made) and if all three are the same
           for (const combo of winningCombos) {
-            if (
-                positions[combo[0]] &&
+            if 
+                (positions[combo[0]] &&
                 positions[combo[0]] === positions[combo[1]] && 
                 positions[combo[1]] === positions[combo[2]]
             ) {
               document.getElementById("winner").innerHTML = `${positions[combo[0]]} wint!`;
+              winner = true;
             }
           // If no winner has been determined in round 9, it is a tie.
             else if (round === 9)
             {
               document.getElementById("winner").innerHTML = "Gelijkspel!";
             }
+            console.log(positions[combo[0]]);
           };
         }
 
@@ -85,6 +87,7 @@
               positions[square] = "O";
               document.getElementById(square).innerHTML = "O";
             };
+            checkWinner();
           };   
         };
 
