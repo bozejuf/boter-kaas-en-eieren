@@ -33,6 +33,8 @@
         let positions = {};
         let round = 0; 
         winner = false;
+        let scoreX = 0;
+        let scoreO = 0;
 
         // This function determines if there is a winner or a tie.
         function checkWinner() {
@@ -62,13 +64,13 @@
             ) {
               document.getElementById("winner").innerHTML = `${positions[combo[0]]} wint!`;
               winner = true;
+              keepScore(positions[combo[0]]);
             }
           // If no winner has been determined in round 9, it is a tie.
             else if (round === 9)
             {
               document.getElementById("winner").innerHTML = "Gelijkspel!";
             }
-            console.log(positions[combo[0]]);
           };
         }
 
@@ -90,6 +92,17 @@
             checkWinner();
           };   
         };
+
+        function keepScore(winningPlayer) {
+          if (winningPlayer = "O") {
+            scoreO += 1;
+            console.log(scoreO);
+          }
+          else {
+            scoreX += 1;
+            console.log(scoreX);
+          }
+        }
 
       </script>
     </div>
