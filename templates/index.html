@@ -29,10 +29,10 @@
       </div>
       <div id="winner"></div>
       <div id="scores">
-        <div id="scoreO">O: 0</div>
-        <div id="scoreX">X: 0</div>
+        <div id="scoreO">O: 0 punten</div>
+        <div id="scoreX">X: 0 punten</div>
       </div>
-      <button onclick="newRound()">reset</button>
+      <button id="newRound" onclick="newRound()">Nieuwe ronde</button>
       <footer><a href="https://www.freepik.com/free-vector/blank-white-notepaper-design-vector_24382364.htm#query=notebook%20paper%20texture&position=3&from_view=keyword&track=ais_user&uuid=feceef04-9991-4ea4-a619-32eaefc86829">Background by rawpixel.com</a> on Freepik</footer>
       <script>
         let positions = {};
@@ -68,9 +68,10 @@
               document.getElementById("winner").innerHTML = `${positions[combo[0]]} wint!`;
               winner = true;
               keepScore(positions[combo[0]]);
+              return;
             }
           // If no winner has been determined in round 9, it is a tie.
-            else if (round === 9)
+            if (round === 9)
             {
               document.getElementById("winner").innerHTML = "Gelijkspel!";
             }
@@ -102,11 +103,21 @@
         function keepScore(winningPlayer) {
           if (winningPlayer === "O") {
             scoreO += 1;
-            document.getElementById("scoreO").innerHTML = `O: ${scoreO}`;
+            if (scoreO === 1) {
+              document.getElementById("scoreO").innerHTML = `O: ${scoreO} punt`;
+            }
+            else {
+              document.getElementById("scoreO").innerHTML = `O: ${scoreO} punten`;
+            }
           }
           else if (winningPlayer === "X") {
             scoreX += 1;
-            document.getElementById("scoreX").innerHTML = `X: ${scoreX}`;
+            if (scoreX === 1) {
+              document.getElementById("scoreX").innerHTML = `X: ${scoreX} punt`;
+            }
+            else {
+              document.getElementById("scoreX").innerHTML = `X: ${scoreX} punten`;
+            }
           }
         }
 

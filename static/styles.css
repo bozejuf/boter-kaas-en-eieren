@@ -48,6 +48,34 @@ h1 {
   padding-top: 30px;
   font-size: 40px;
   text-align: center;
+  height: 40px;
+}
+
+#scores {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 25px;
+
+}
+
+#newRound {
+  font-family: "Permanent Marker", cursive;
+  font-size: 25px;
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  border-radius: 15px;
+  background-color: transparent;
+  margin-top: 15px;
+}
+
+#newRound:hover {
+  background-color: rgba(128, 128, 128, 0.286);
+}
+
+#newRound:active {
+  background-color: transparent;
 }
 
 footer {
@@ -59,3 +87,4 @@ footer {
   width: 100%;
   text-align: center;
 }
+
