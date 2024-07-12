@@ -28,14 +28,16 @@
         <button id="c3" onclick="saveMove('c3')"  class="square"></button>
       </div>
       <div id="winner"></div>
+      <div id="scores">
+        <div id="scoreO">O: 0</div>
+        <div id="scoreX">X: 0</div>
+      </div>
       <button onclick="newRound()">reset</button>
       <footer><a href="https://www.freepik.com/free-vector/blank-white-notepaper-design-vector_24382364.htm#query=notebook%20paper%20texture&position=3&from_view=keyword&track=ais_user&uuid=feceef04-9991-4ea4-a619-32eaefc86829">Background by rawpixel.com</a> on Freepik</footer>
       <script>
         let positions = {};
         let round = 0; 
         winner = false;
-        let scoreX = 0;
-        let scoreO = 0;
 
         // This function determines if there is a winner or a tie.
         function checkWinner() {
@@ -94,14 +96,17 @@
           };   
         };
 
+        let scoreX = 0;
+        let scoreO = 0;
+
         function keepScore(winningPlayer) {
-          if (winningPlayer = "O") {
+          if (winningPlayer === "O") {
             scoreO += 1;
-            console.log(`O: ${scoreO}`);
+            document.getElementById("scoreO").innerHTML = `O: ${scoreO}`;
           }
-          else if (winningPlayer = "X") {
+          else if (winningPlayer === "X") {
             scoreX += 1;
-            console.log(`X: ${scoreX}`);
+            document.getElementById("scoreX").innerHTML = `X: ${scoreX}`;
           }
         }
 
