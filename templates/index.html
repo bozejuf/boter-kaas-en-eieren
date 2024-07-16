@@ -10,29 +10,34 @@
 
   </head>
   <body>
-    <h1>Boter-kaas-en-eieren</h1>
-    <div>
-      <div class="row">
-        <button id="a1" onclick="saveMove('a1')" class="square"></button>
-        <button id="a2" onclick="saveMove('a2')"  class="square"></button>
-        <button id="a3" onclick="saveMove('a3')"  class="square"></button>
+    <div id="main">
+      <h1 id="title">Boter-kaas-en-eieren</h1>
+      <div id="turn"># is aan de beurt</div>
+      <div id="round-counter">Spel 1</div>
+      <div id="game">
+        <div class="row">
+          <button id="a1" onclick="saveMove('a1')" class="square"></button>
+          <button id="a2" onclick="saveMove('a2')"  class="square"></button>
+          <button id="a3" onclick="saveMove('a3')"  class="square"></button>
+        </div>
+        <div class="row">
+          <button id="b1" onclick="saveMove('b1')"  class="square"></button>
+          <button id="b2" onclick="saveMove('b2')"  class="square"></button>
+          <button id="b3" onclick="saveMove('b3')"  class="square"></button>
+        </div>
+        <div class="row">
+          <button id="c1" onclick="saveMove('c1')"  class="square"></button>
+          <button id="c2" onclick="saveMove('c2')"  class="square"></button>
+          <button id="c3" onclick="saveMove('c3')"  class="square"></button>
+        </div>
+        <div id="winner"></div>
+        <button id="newRound" onclick="newRound()">Nieuwe ronde</button>
+        <div id="scores">
+          <div class="scoreboard" id="scoreO">O: 0 punten</div>
+          <div class="scoreboard" id="scoreX">X: 0 punten</div>
+        </div>
+        <div class="scoreboard" id="tie"># keer gelijkspel</div>
       </div>
-      <div class="row">
-        <button id="b1" onclick="saveMove('b1')"  class="square"></button>
-        <button id="b2" onclick="saveMove('b2')"  class="square"></button>
-        <button id="b3" onclick="saveMove('b3')"  class="square"></button>
-      </div>
-      <div class="row">
-        <button id="c1" onclick="saveMove('c1')"  class="square"></button>
-        <button id="c2" onclick="saveMove('c2')"  class="square"></button>
-        <button id="c3" onclick="saveMove('c3')"  class="square"></button>
-      </div>
-      <div id="winner"></div>
-      <div id="scores">
-        <div id="scoreO">O: 0 punten</div>
-        <div id="scoreX">X: 0 punten</div>
-      </div>
-      <button id="newRound" onclick="newRound()">Nieuwe ronde</button>
       <footer><a href="https://www.freepik.com/free-vector/blank-white-notepaper-design-vector_24382364.htm#query=notebook%20paper%20texture&position=3&from_view=keyword&track=ais_user&uuid=feceef04-9991-4ea4-a619-32eaefc86829">Background by rawpixel.com</a> on Freepik</footer>
       <script>
         let positions = {};

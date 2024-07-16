@@ -1,4 +1,4 @@
-/* TODO: Add credit <a href="https://www.freepik.com/free-vector/blank-white-notepaper-design-vector_24382364.htm#query=notebook%20paper%20texture&position=3&from_view=keyword&track=ais_user&uuid=feceef04-9991-4ea4-a619-32eaefc86829">Image by rawpixel.com</a> on Freepik*/
+
 body {
   font-family: "Permanent Marker", cursive;
   background-image: url("notebook-page.jpg");
@@ -6,10 +6,13 @@ body {
   background-size: 100%;
 }
 
-h1 {
+#main {
+  display:flex;
+  flex-direction: column;
   text-align: center;
 
 }
+
 
 .row {
   display: flex;
@@ -47,7 +50,6 @@ h1 {
 #winner {
   padding-top: 30px;
   font-size: 40px;
-  text-align: center;
   height: 40px;
 }
 
@@ -55,9 +57,12 @@ h1 {
   margin-top: 30px;
   display: flex;
   justify-content: space-evenly;
-  font-size: 25px;
-
 }
+
+.score-board {
+  font-size: 25px;
+}
+
 
 #newRound {
   font-family: "Permanent Marker", cursive;
