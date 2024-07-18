@@ -96,7 +96,7 @@
           if (!(square in positions) && !winner) {
             turns += 1;
             // If the turn-number is odd, it is Xs turn, if it is even, it is Os turn
-            if (turns%2) {
+            if ((turns%2 && !(rounds%2)) || (!(turns%2) && rounds%2)) {
               positions[square] = "X";
               document.getElementById(square).innerHTML = "X";
             }
