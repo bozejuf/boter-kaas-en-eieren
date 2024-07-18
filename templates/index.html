@@ -36,12 +36,14 @@
           <div class="scoreboard" id="scoreO">O: 0 punten</div>
           <div class="scoreboard" id="scoreX">X: 0 punten</div>
         </div>
-        <div class="scoreboard" id="tie"># keer gelijkspel</div>
+        <div class="scoreboard" id="tie">0 keer gelijkspel</div>
       </div>
       <footer><a href="https://www.freepik.com/free-vector/blank-white-notepaper-design-vector_24382364.htm#query=notebook%20paper%20texture&position=3&from_view=keyword&track=ais_user&uuid=feceef04-9991-4ea4-a619-32eaefc86829">Background by rawpixel.com</a> on Freepik</footer>
       <script>
         let positions = {};
         let round = 0; 
+        let ties = 0;
+        let roundCounter = 1;
         winner = false;
 
         // This function determines if there is a winner or a tie.
@@ -70,18 +72,22 @@
                 positions[combo[0]] === positions[combo[1]] && 
                 positions[combo[1]] === positions[combo[2]]
             ) {
-              document.getElementById("winner").innerHTML = `${positions[combo[0]]} wint!`;
-              winner = true;
-              keepScore(positions[combo[0]]);
-              return;
+                  document.getElementById("winner").innerHTML = `${positions[combo[0]]} wint!`;
+                  winner = true;
+                  keepScore(positions[combo[0]]);
+                  return;
+              }
             }
           // If no winner has been determined in round 9, it is a tie.
             if (round === 9)
             {
               document.getElementById("winner").innerHTML = "Gelijkspel!";
+              ties += 1;
+              console.log(`Gelijkspel: ${ties}`);
+              document.getElementById("tie").innerHTML = `${ties} keer gelijkspel`;
             }
           };
-        }
+        
 
         // This function saves every move to the dict "positions"
         // If the round-number is even, it's Xs turn, if it is odd it is Os turn
@@ -135,6 +141,8 @@
           document.getElementById("winner").innerHTML = "";
           round = 0;
           winner = false;
+          roundCounter += 1;
+          document.getElementById("round-counter").innerHTML = `Spel ${roundCounter}`;
         }
 
       </script>
