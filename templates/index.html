@@ -41,9 +41,9 @@
       <footer><a href="https://www.freepik.com/free-vector/blank-white-notepaper-design-vector_24382364.htm#query=notebook%20paper%20texture&position=3&from_view=keyword&track=ais_user&uuid=feceef04-9991-4ea4-a619-32eaefc86829">Background by rawpixel.com</a> on Freepik</footer>
       <script>
         let positions = {};
-        let round = 0; 
+        let turns = 0; 
         let ties = 0;
-        let roundCounter = 1;
+        let rounds = 1;
         winner = false;
 
         // This function determines if there is a winner or a tie.
@@ -60,8 +60,8 @@
             ["a3", "b2", "c1"]
           ];
 
-          // In round 5 is the earliest there can be a winner, so before that the rest of the function can be ignored.
-          if (round < 5) {
+          // In turn 5 is the earliest there can be a winner, so before that the rest of the function can be ignored.
+          if (turns < 5) {
             return;
           }
           
@@ -78,8 +78,8 @@
                   return;
               }
             }
-          // If no winner has been determined in round 9, it is a tie.
-            if (round === 9)
+          // If no winner has been determined in turn 9, it is a tie.
+            if (turns === 9)
             {
               document.getElementById("winner").innerHTML = "Gelijkspel!";
               ties += 1;
@@ -90,13 +90,13 @@
         
 
         // This function saves every move to the dict "positions"
-        // If the round-number is even, it's Xs turn, if it is odd it is Os turn
+        // If the turn-number is even, it's Xs turn, if it is odd it is Os turn
         function saveMove(square) {
-          // if move has not been made yet and there is no winner yet, move is saved and round goes up by 1
+          // if move has not been made yet and there is no winner yet, move is saved and turn goes up by 1
           if (!(square in positions) && !winner) {
-            round += 1;
-            // If the round-number is odd, it is Xs turn, if it is even, it is Os turn
-            if (round%2) {
+            turns += 1;
+            // If the turn-number is odd, it is Xs turn, if it is even, it is Os turn
+            if (turns%2) {
               positions[square] = "X";
               document.getElementById(square).innerHTML = "X";
             }
@@ -139,10 +139,10 @@
           }
           positions = {};
           document.getElementById("winner").innerHTML = "";
-          round = 0;
+          turns = 0;
           winner = false;
-          roundCounter += 1;
-          document.getElementById("round-counter").innerHTML = `Spel ${roundCounter}`;
+          rounds += 1;
+          document.getElementById("round-counter").innerHTML = `Spel ${rounds}`;
         }
 
       </script>
