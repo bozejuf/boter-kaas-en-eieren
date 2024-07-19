@@ -12,7 +12,7 @@
   <body>
     <div id="main">
       <h1 id="title">Boter-kaas-en-eieren</h1>
-      <div id="turn"># is aan de beurt</div>
+      <div id="turn">O is aan de beurt</div>
       <div id="round-counter">Spel 1</div>
       <div id="game">
         <div class="row">
@@ -99,10 +99,12 @@
             if ((turns%2 && !(rounds%2)) || (!(turns%2) && rounds%2)) {
               positions[square] = "X";
               document.getElementById(square).innerHTML = "X";
+              document.getElementById("turn").innerHTML = "O is aan de beurt";
             }
             else {
               positions[square] = "O";
               document.getElementById(square).innerHTML = "O";
+              document.getElementById("turn").innerHTML = "X is aan de beurt";
             };
             checkWinner();
           };   
